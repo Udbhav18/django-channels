@@ -111,19 +111,19 @@ LOGIN_URL = '/admin'
 STATIC_URL = '/static/'
 ASGI_APPLICATION = "core.routing.application"
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [os.environ['REDIS_URL']],
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [("redis", 6379)],
+        },
+    },
+}
 
 # CACHES = {
 #     "default": {
 #         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": os.environ['REDIS_URL'],
+#         "LOCATION": [("redis", 6379)],
 #         "OPTIONS": {
 #             "CLIENT_CLASS": "django_redis.client.DefaultClient"
 #         }
@@ -131,8 +131,8 @@ ASGI_APPLICATION = "core.routing.application"
 # }
 
 # Comment this out if using redis
-CHANNEL_LAYERS = {
-    "default" : {
-        "BACKEND" : "channels.layers.InMemoryChannelLayer"
-    }
-}
+# CHANNEL_LAYERS = {
+#     "default" : {
+#         "BACKEND" : "channels.layers.InMemoryChannelLayer"
+#     }
+# }
