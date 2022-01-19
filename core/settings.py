@@ -14,7 +14,7 @@ SECRET_KEY = 'czq5w9hzxlrag0k3$gt+zwglzo&9&1e()_evo&3$j*jewz7jf7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -120,17 +120,17 @@ CHANNEL_LAYERS = {
     },
 }
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": [("redis", 6379)],
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
-#         }
-#     }
-# }
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": [("redis", 6379)],
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        }
+    }
+}
 
-# Comment this out if using redis
+# Uncomment this if not using redis
 # CHANNEL_LAYERS = {
 #     "default" : {
 #         "BACKEND" : "channels.layers.InMemoryChannelLayer"
